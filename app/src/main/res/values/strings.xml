@@ -15,4 +15,7 @@
     <string name="poor">Poor!</string>
     <string name="result">You Scored : </string>
     <string name="title_activity_result">Result</string>
+    <string name="level2">Level 2</string>
+    <string name="congrats">Congratulations! you have successfully unlocked Level 2</string>
+    <string name="title_activity_level2">Level 2</string>
 </resources>

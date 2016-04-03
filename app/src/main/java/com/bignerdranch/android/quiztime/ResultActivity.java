@@ -38,9 +38,19 @@ public class ResultActivity extends AppCompatActivity {
             }
         });
 
-        String resultDisplay = ""+getIntent().getIntExtra(RESULT_SCORE,0)+" / 4";
+        int final_score=getIntent().getIntExtra(RESULT_SCORE,0);
+        String resultDisplay = ""+final_score+" / 4";
         mAnswerDisplay= (TextView) findViewById(R.id.score);
         mAnswerDisplay.setText(resultDisplay);
+
+        if(final_score<3){
+            View l2btn = findViewById(R.id.level2button);
+            l2btn.setVisibility(View.GONE);
+            View l2txt = findViewById(R.id.level2text);
+            l2txt.setVisibility(View.GONE);
+        }
+
+
 
     }
 
