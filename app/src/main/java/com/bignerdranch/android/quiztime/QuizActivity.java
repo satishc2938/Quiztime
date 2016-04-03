@@ -1,5 +1,6 @@
 package com.bignerdranch.android.quiztime;
 
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -22,26 +23,38 @@ public class QuizActivity extends AppCompatActivity {
     private ImageButton mPreviousButton;
     private int mCurrentIndex=0;
     private TextView mQuestionTextView;
+    private int mResult=0;
 
     private Question[] mQuestionBank = new Question[]{
-            new Question(R.string.question_1,true),
-            new Question(R.string.question_2,false),
-            new Question(R.string.question_3,true),
+            new Question(R.string.question_1,false),
+            new Question(R.string.question_2,true),
+            new Question(R.string.question_3,false),
             new Question(R.string.question_4,true)
     };
 
+    private int[] resultCheck = new int[mQuestionBank.length];
     private void updateQuestion(){
         int question  = mQuestionBank[mCurrentIndex].getTextResId();
         mQuestionTextView.setText(question);
     }
-
+    private int totalQuestions=mQuestionBank.length;
     private void checkAnswer(boolean userPressedTrue){
         boolean correctAnswer = mQuestionBank[mCurrentIndex].isAnswerTrue();
         int resAnswerId=0;
-        if(userPressedTrue==correctAnswer)
-            resAnswerId=R.string.correct_toast;
-        else
-            resAnswerId=R.string.incorrect_toast;
+        if(userPressedTrue==correctAnswer) {
+            resAnswerId = R.string.correct_toast;
+            if(resultCheck[mCurrentIndex]!=1){
+                mResult++;
+                resultCheck[mCurrentIndex]=1;
+            }
+        }
+        else{
+            resAnswerId = R.string.incorrect_toast;
+            if(resultCheck[mCurrentIndex]!=1){
+                resultCheck[mCurrentIndex]=1;
+            }
+        }
+
         Toast.makeText(this,resAnswerId,Toast.LENGTH_SHORT).show();
     }
 
@@ -89,6 +102,14 @@ public class QuizActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mCurrentIndex=(mCurrentIndex+1)%mQuestionBank.length;
                 updateQuestion();
+                if(mCurrentIndex==0||mCurrentIndex-1==(mQuestionBank.length-1))
+                {
+                   Intent i = ResultActivity.newIntent(QuizActivity.this, mResult);
+                    startActivity(i);
+                }
+
+
+
             }
         });
 
@@ -100,6 +121,7 @@ public class QuizActivity extends AppCompatActivity {
                 else
                     mCurrentIndex=(mCurrentIndex-1)%mQuestionBank.length;
                 updateQuestion();
+
             }
         });
 

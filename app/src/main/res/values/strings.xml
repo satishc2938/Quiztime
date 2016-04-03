@@ -6,8 +6,13 @@
     <string name="incorrect_toast">Incorrect!</string>
     <string name="correct_toast">Correct!</string>
     <string name="next">Next</string>
-    <string name="question_1">Question1</string>
-    <string name="question_2">Question2</string>
-    <string name="question_3">Question3</string>
-    <string name="question_4">Question4</string>
+    <string name="question_1">Mumbai is capital of India.</string>
+    <string name="question_2">India won the Cricket World Cup in 2011.</string>
+    <string name="question_3">UttarPradesh is the PinkCity of India.</string>
+    <string name="question_4">Leonardo DiCaprio won the Oscar.</string>
+    <string name="good">Good!</string>
+    <string name="excellent">Excellent!</string>
+    <string name="poor">Poor!</string>
+    <string name="result">You Scored : </string>
+    <string name="title_activity_result">Result</string>
 </resources>
