@@ -29,7 +29,18 @@ public class QuizActivity extends AppCompatActivity {
             new Question(R.string.question_1,false),
             new Question(R.string.question_2,true),
             new Question(R.string.question_3,false),
-            new Question(R.string.question_4,true)
+            new Question(R.string.question_4,true),
+            new Question(R.string.question_5,true),
+            new Question(R.string.question_6,true),
+            new Question(R.string.question_7,false),
+            new Question(R.string.question_8,true),
+            new Question(R.string.question_9,true),
+            new Question(R.string.question_10,false),
+            new Question(R.string.question_11,true),
+            new Question(R.string.question_12,false),
+            new Question(R.string.question_13,true),
+            new Question(R.string.question_14,true),
+            new Question(R.string.question_15,false)
     };
 
     private int[] resultCheck = new int[mQuestionBank.length];

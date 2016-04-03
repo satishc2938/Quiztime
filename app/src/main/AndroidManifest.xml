@@ -27,6 +27,11 @@
             android:label="@string/title_activity_level2"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+        <activity
+            android:name=".FinalResultActivity"
+            android:label="@string/title_activity_final_result"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>
